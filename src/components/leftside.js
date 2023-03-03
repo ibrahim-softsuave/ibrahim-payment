@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './leftside.css' 
 import  * as Aaicons  from "react-icons/ai";
+import  * as BIicons  from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 import { useContext,useEffect } from 'react';
 import AuthContext from './login/context/Authprovider';
@@ -13,7 +14,6 @@ export const Leftside = () => {
     const[success,setSuccess]=useState(true);
     const[recData,setRecData]=useState([]);
     const[usersNames,setUserNames]=useState([]);
-    console.log(usersNames);
 
     useEffect(()=>{
         axios.get(resentList).then((response)=>{
@@ -22,19 +22,23 @@ export const Leftside = () => {
     },[]);
 
     const handleChange=async(e)=>{
-        const accountNo=user.auth.accountNo
         const name=e.target.name
         const value=e.target.value
         setFormData( values =>({...values,[name]:value}))
+        if(name==='pay'){ 
         await axios.get(USER,{params :{searchItem:value,accountNo:user.auth.account_no}}).then((response)=>{
-            setUserNames(response.data.query);
-        })
+                setUserNames(response.data.query);
+            })
+        }
     }
     const handleNext=(e)=>{
         e.preventDefault();
         setSuccess(!success)
         console.log(formData);
 
+    }
+    const handleDraft=()=>{
+        console.log('hi')
     }
     const handleBack=()=>{
         setSuccess(!success)
@@ -52,9 +56,9 @@ export const Leftside = () => {
                 <p >Pay Someone</p>
                 <p >you can pay some one in 4 easy steps</p>
             </div>
-            <form autoComplete='off'>
+            <form autoComplete='off' onSubmit={handleNext}>
                 <label >Pay : </label>
-                    <input style={{fontSize:'22px',borderRadius:'0.5rem',padding:'0.25rem',width:'290px'}} list='pay-list' name='pay' value={formData.pay} onChange={handleChange}></input>
+                    <input style={{marginRight: '0px'}} required placeholder='Enter or choose credit account' list='pay-list' name='pay' value={formData.pay}  onChange={handleChange} ></input>
                     <datalist id='pay-list'>
                         {usersNames.map((items,index)=>{
                             return(
@@ -62,15 +66,17 @@ export const Leftside = () => {
                             )
                         })
                         }
-                    </datalist><br></br>
+                    </datalist>
+                    <button type='button' className='right-button'><BIicons.BiRightArrow/></button>
+                    <br></br>
                 <label >From : </label>
-                    <input type="text" name='from' value={formData.from } onChange={handleChange}></input><br/>
+                    <input type="text" name='from' value={formData.from } onChange={handleChange} placeholder='Enter or choose debit account' required></input><br/>
                 <label >Amount :</label >
-                    <input type="text" name='amount' value={formData.amount} onChange={handleChange}></input><br/>
+                    <input type="text" name='amount' value={formData.amount} onChange={handleChange}placeholder='payment amount' required></input><br/>
                 <label >Payment Reason :</label>
-                    <input type="text" name='reason' value={formData.reason} onChange={handleChange}></input><br/>
+                    <input type="text" name='reason' value={formData.reason} onChange={handleChange} placeholder='Choose payment reason ' required ></input><br/>
                 <label>Description for benificiary:</label>
-                    <input type="text" name='benfi' value={formData.benifi} onChange={handleChange}></input><br/>
+                    <input type="text" name='benfi' value={formData.benifi} onChange={handleChange} placeholder='Enter description'></input><br/>
                 <label >send advice to :</label>
                     <input type="text" name='advice' value={formData.advice} onChange={handleChange}></input><br/>
                 <label >withholding tax : </label>
@@ -79,8 +85,8 @@ export const Leftside = () => {
                     <input type="text" name='doc' value={formData.doc} onChange={handleChange}></input><br/>
                 <div className='form-footer'>
                 <a href="/payment-form">cancel</a>
-                <button>save as draft</button>
-                <button onClick={handleNext}>next</button>
+                <button type='button' onClick={handleDraft}>save as draft</button>
+                <button >next</button>
                 </div>
             </form>
         </div>

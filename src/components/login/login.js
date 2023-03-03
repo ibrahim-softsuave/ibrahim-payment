@@ -32,7 +32,7 @@ const handleSubmit=async(e)=>{
     setAuth({ user:user, pwd:pwd,account_no:account_no});
     setUser('');
     setPwd('');
-    navigate('/home');
+    navigate('/payment-form');
     } 
   catch (err) {
     if (!err?.response) {
@@ -77,12 +77,6 @@ const handleSubmit=async(e)=>{
                   </label>
                   <button>SiginIn</button>
                 </form>
-                <p style={{textAlign:'center'}}>
-                  Need an account ?
-                </p>
-                <p style={{textAlign:'center',display:'inline-block'}}>
-                <a href="https://google.com">Signup</a>
-                </p>
             </section>
             {/* {success?<Navigate to="/home" replace={true} />:<Navigate to="/" replace={true} />} */}
             </div>
