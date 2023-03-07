@@ -12,17 +12,69 @@
    width: 100%;
    text-align: center;
    border-right: 2px solid #333;
+   display: flex;
+   flex-direction: column;
+  
 }
 .left-element >form{
     text-align: center;
 }
-.top-elem > p {
-    margin-bottom: 10px;
+
+.left-element >form>span {
+    margin-left: 20px;
 }
-.left-element>form > input{
+.top-elem > p {
+    margin: 10px;
+}
+
+.prograss-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.prograss-bar .bar-style {
+    display: flex;
+    align-items: center ;
+}
+.prograss-bar .bar-name {
+    display: flex;
+    justify-content:space-between;
+    width: 660px;
+    margin-top: 10px;
+}
+.prograss-bar .line {
+    height: 3px;
+    width:600px;
+    background-color:#333;
+}
+.prograss-bar .step1,.step2 {
+    border: 2px solid #333;
+    height:20px;
+    width:20px;
+    border-radius: 10px;
+    
+}
+.step1_color {
+    border: 2px solid #333;
+    height:20px;
+    width:20px;
+    border-radius: 10px;
+    background-color:green;
+}
+
+.line_color {
+    height: 3px;
+    width:600px;
+    background-color:green;
+}
+
+.left-element>form > input[type='text']{
     margin: 25px;
     height: 30px;
-    width:250px;
+    width:275px;
+    margin-right: 0;
 }
 .left-element>form > label{
     display: inline-block;
@@ -30,14 +82,97 @@
     width:300px;  
     margin: 10px; 
 }
-.right-button {
-    height: 30px;
-    width: 25px;
-    border-left: 0;
 
-    padding: 0;
-    background-color: white;
+.in-but {
+    display: inline-block;  
 }
+
+.in-but label {
+    display: inline-block;
+    text-align: left;
+    width:300px;  
+    margin: 10px; 
+}
+
+.in-but input {
+    margin: 25px;
+    height: 30px;
+    width:250px;
+    border-right: 0;
+    margin-right: 0;
+
+}
+.in-but input:focus {
+    outline:0;
+}
+.in-but button {
+    border-left:0;
+    height: 25px;
+    width: 25px;
+    padding-top: 4px;
+    padding-bottom: 22px;
+    box-shadow: none;
+     background-color: white;
+}
+
+.amount label {
+    display: inline-block;
+    text-align: left;
+    width:300px;  
+    margin: 10px; 
+
+}
+.amount input[type='text'] {
+    margin: 25px;
+    height: 30px;
+    width:175px;
+}
+.amount select {
+    height: 30px;
+    width:75px;
+}
+.dis {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.dis label {
+    display: inline-block;
+    width:300px;  
+    margin: 10px; 
+    text-align: left;
+    margin-right: 35px;
+    margin-left: 5px;
+}
+.dis textarea {
+    width: 270px;
+    height: 80px; 
+}
+
+.check-all {
+    display: flex;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.check-all label {
+    display: inline-block;
+    text-align: left;
+    width:300px;  
+    margin: 10px; 
+}
+.check {
+    margin: 25px;
+    height: 30px;
+    width:275px;
+    margin-right: 0;
+    display: inline-block;
+    text-align: left;
+}
+.check input {
+    margin-right:10px ;
+}
+
 .form-footer{
     position: relative;
     left:15%
@@ -62,33 +197,35 @@
     padding: 30px;
     margin-bottom: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.review-container {
+.review {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    height:100vh;
-    
+
 }
-.review-container p {
-    text-align: center;
+.review-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width:700px;
+    height:250px;
+    align-items: left;
+    border-top:2px solid #333 ;
+    border-bottom:2px solid #333 ;
 }
-.rectangle {
-    background-color: aqua;
+.top-content {
+    display: flex;
+    justify-content: flex-start;
+    width: 700px;
+    align-items: center;
+    font-size: 16px;
+}
+.top-content p {
+    margin: 10px;
+}
+.review-container button {
+    height: 30px;
+    width:60px;
+
 }
