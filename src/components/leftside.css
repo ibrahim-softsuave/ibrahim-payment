@@ -202,14 +202,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 .review-container {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     width:700px;
-    height:250px;
     align-items: left;
     border-top:2px solid #333 ;
     border-bottom:2px solid #333 ;
@@ -221,11 +219,41 @@
     align-items: center;
     font-size: 16px;
 }
+.container-items {
+    display:flex;
+    margin: 5px;
+}
+.item1 p {
+    width: 33%;
+}
 .top-content p {
     margin: 10px;
 }
-.review-container button {
+.review-footer {
+    display: flex;
+    justify-content: flex-end;
+    width:700px;
+    z-index: 0;
+}
+.footer-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 400px;
+}
+.footer-items a {
+    text-decoration: none;
+   
+}
+.footer-items button {
+    background-color: white;
+    color: blue;
     height: 30px;
-    width:60px;
-
+    border: 2px solid blue;
+    
+   
+}
+.footer-items button[type='Submit'] {
+    background-color: blue;
+    color: whitesmoke;
 }
