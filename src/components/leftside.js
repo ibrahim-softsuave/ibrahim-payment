@@ -8,6 +8,7 @@ import { useContext, useEffect } from 'react';
 import AuthContext from './login/context/Authprovider';
 import axios from './login/api/axios';
 import { CurrencyType } from './CurreencyType';
+import Model from './model';
 const USER = '/intelletUsers'
 const resentList = '/recentList'
 export const Leftside = () => {
@@ -196,6 +197,7 @@ export const Leftside = () => {
                         </div>
                     </div>
                 </div>
+                <Model open={isOpen} onClick={handlePopUp} data={formData}></Model>
             </>
             )
             }
